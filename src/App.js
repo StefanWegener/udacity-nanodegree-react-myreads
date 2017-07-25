@@ -2,42 +2,18 @@ import React, { Component } from "react";
 
 import "./App.css";
 
-import { Layout } from "antd";
-const { Header, Footer, Sider, Content } = Layout;
+import {Route} from "react-router-dom";
+
+import MainScreen from "./screens/MainScreen";
+import SearchScreen from "./screens/SearchScreen";
 
 class App extends Component {
   render() {
     return (
-      <Layout style={{ height: "100vh" }}>
-        <Header
-          style={{
-            position: "fixed",
-            width: "100%",
-            textAlign: "center",
-            color: "white",
-            fontSize: 24
-          }}
-        >
-          MyReads App
-        </Header>
-
-        <Content
-          style={{
-            marginTop: 64,
-            padding: 20,
-            height: 0,
-            backgroundColor: "red",
-            flexGrow: 1,
-            overflowY: "scroll"
-          }}
-        >
-          <div>Test</div>
-        </Content>
-
-        <Footer style={{ textAlign: "center" }}>
-          MyReads App ©2017 Created by Stefan Wegener
-        </Footer>
-      </Layout>
+      <div>
+        <Route exact path="/" component={MainScreen}/>
+        <Route exact path="/search" component={SearchScreen}/>
+      </div>
     );
   }
 }

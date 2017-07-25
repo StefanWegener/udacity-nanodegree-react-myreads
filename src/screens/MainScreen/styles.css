@@ -1,0 +1,10 @@
+.custom-image img {
+  display: block;
+  object-fit: cover;
+}
+.custom-card {
+  padding: 10px 16px;
+}
+.custom-card p {
+  color: #999;
+}
