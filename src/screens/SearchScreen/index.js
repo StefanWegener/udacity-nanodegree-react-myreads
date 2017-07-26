@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import "./styles.css";
 
 import { Layout } from "antd";
-const { Header, Footer, Sider, Content } = Layout;
+const { Header, Footer, Content } = Layout;
 
 class SearchScreen extends Component {
   render() {
