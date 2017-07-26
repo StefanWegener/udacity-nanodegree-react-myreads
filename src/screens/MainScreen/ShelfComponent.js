@@ -21,7 +21,7 @@ class ShelfComponent extends Component {
           {this.props.books &&
             this.props.books
               .filter(b => b.shelf === this.props.shelf)
-              .map(b => (<BookComponent book={b}/>))}
+              .map(b => (<BookComponent key={b.id} book={b} changeShelf={this.props.changeShelf}/>))}
         </Row>
       </div>
     );

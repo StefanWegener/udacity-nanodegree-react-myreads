@@ -6,7 +6,7 @@ import { Layout, Button } from "antd";
 
 import { Link } from "react-router-dom";
 
-import { getAll } from "../../BooksAPI";
+import * as BooksAPI from "../../BooksAPI";
 
 import ShelfComponent from "./ShelfComponent";
 
@@ -18,10 +18,17 @@ class MainScreen extends Component {
   };
 
   componentDidMount() {
-    getAll().then(books => {
+    BooksAPI.getAll().then(books => {
       this.setState({ books });
     });
   }
+
+  // TODO only new sorting now fetchin
+  changeShelf = (book, newShelf) => {
+    BooksAPI.update(book, newShelf).then(BooksAPI.getAll).then(books => {
+      this.setState({ books });
+    });
+  };
 
   render() {
     return (
@@ -51,14 +58,21 @@ class MainScreen extends Component {
           <ShelfComponent
             title="Currently Reading"
             shelf="currentlyReading"
+            changeShelf={this.changeShelf}
             books={this.state.books}
           />
           <ShelfComponent
             title="Want to Read"
             shelf="wantToRead"
+            changeShelf={this.changeShelf}
             books={this.state.books}
           />
-          <ShelfComponent title="Read" shelf="read" books={this.state.books} />
+          <ShelfComponent
+            title="Read"
+            shelf="read"
+            changeShelf={this.changeShelf}
+            books={this.state.books}
+          />
         </Content>
 
         <div style={{ position: "absolute", bottom: 20, right: 20 }}>

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 
-import { Button, Card } from "antd";
+import { Button, Card, Popover } from "antd";
+
+import ShelfSelectionComponent from './ShelfSelectionComponent';
 
 class BookComponent extends Component {
   render() {
@@ -9,13 +11,26 @@ class BookComponent extends Component {
     return (
       <Card
         key={book.id}
-        style={{ width: 260, margin: 24 }}
+        style={{ width: 200, margin: 24 }}
         bodyStyle={{ padding: 0 }}
         extra={
-          <Button type="primary" shape="circle" icon="select" size="large" />
+          <Popover
+            placement="bottom"
+            content={
+              <ShelfSelectionComponent
+                shelf={book.shelf}
+                changeShelf={newShelf =>
+                  this.props.changeShelf(book, newShelf)}
+              />
+            }
+            title="Move book to shelf ..."
+            trigger="click"
+          >
+            <Button type="primary" shape="circle" icon="select" size="large" />
+          </Popover>
         }
       >
-        <div style={{ height: 350, width: 260 }}>
+        <div style={{ height: 260, width: '100%' }}>
           <img
             alt="example"
             width="100%"
