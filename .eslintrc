@@ -1,5 +1,9 @@
 {
   "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "mocha": true
+  },
   "extends": "airbnb",
   "plugins": ["react", "import", "jsx-a11y"],
   "rules": {
@@ -8,12 +12,5 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "no-console": 0
   },
-  "globals": {
-    "fetch": false,
-    "localStorage": false,
-    "document": false,
-    "window": false,
-    "navigator": false,
-    "URL": false
-  }
+  "globals": {}
 }
