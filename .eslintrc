@@ -2,7 +2,8 @@
   "parser": "babel-eslint",
   "env": {
     "browser": true,
-    "mocha": true
+    "mocha": true,
+    "node": true
   },
   "extends": "airbnb",
   "plugins": ["react", "import", "jsx-a11y"],
@@ -11,6 +12,5 @@
     "jsx-a11y/anchor-is-valid": ["warn", { "aspects": ["invalidHref"] }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "no-console": 0
-  },
-  "globals": {}
+  }
 }
