@@ -1,45 +1,43 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import { Layout, Button } from 'antd';
+import { Link } from 'react-router-dom';
 
-import "./styles.css";
+import './styles.css';
 
-import { Layout, Button } from "antd";
+import * as BooksAPI from '../../BooksAPI';
 
-import { Link } from "react-router-dom";
-
-import * as BooksAPI from "../../BooksAPI";
-
-import ShelfComponent from "./ShelfComponent";
+import ShelfComponent from './ShelfComponent';
 
 const { Header, Content } = Layout;
 
 class MainScreen extends Component {
   state = {
-    books: undefined
+    books: undefined,
   };
 
   componentDidMount() {
-    BooksAPI.getAll().then(books => {
+    BooksAPI.getAll().then((books) => {
       this.setState({ books });
     });
   }
 
   // TODO only new sorting now fetchin
   changeShelf = (book, newShelf) => {
-    BooksAPI.update(book, newShelf).then(BooksAPI.getAll).then(books => {
+    BooksAPI.update(book, newShelf).then(BooksAPI.getAll).then((books) => {
       this.setState({ books });
     });
   };
 
   render() {
     return (
-      <Layout style={{ height: "100vh" }}>
+      <Layout style={{ height: '100vh' }}>
         <Header
           style={{
-            position: "fixed",
-            width: "100%",
-            textAlign: "center",
-            color: "white",
-            fontSize: 24
+            position: 'fixed',
+            width: '100%',
+            textAlign: 'center',
+            color: 'white',
+            fontSize: 24,
           }}
         >
           MyReads App
@@ -50,9 +48,9 @@ class MainScreen extends Component {
             marginTop: 64,
             padding: 20,
             height: 0,
-            backgroundColor: "white",
+            backgroundColor: 'white',
             flexGrow: 1,
-            overflowY: "scroll"
+            overflowY: 'scroll',
           }}
         >
           <ShelfComponent
@@ -75,7 +73,7 @@ class MainScreen extends Component {
           />
         </Content>
 
-        <div style={{ position: "absolute", bottom: 20, right: 20 }}>
+        <div style={{ position: 'absolute', bottom: 20, right: 20 }}>
           <Link to="/search">
             <Button type="primary" shape="circle" icon="plus" size="large" />
           </Link>

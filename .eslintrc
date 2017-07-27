@@ -1,0 +1,19 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "plugins": ["react", "import", "jsx-a11y"],
+  "rules": {
+    "jsx-a11y/href-no-hash": "off",
+    "jsx-a11y/anchor-is-valid": ["warn", { "aspects": ["invalidHref"] }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-console": 0
+  },
+  "globals": {
+    "fetch": false,
+    "localStorage": false,
+    "document": false,
+    "window": false,
+    "navigator": false,
+    "URL": false
+  }
+}
