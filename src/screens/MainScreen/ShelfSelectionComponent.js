@@ -11,13 +11,18 @@ function ShelfSelectionComponent({ shelf, changeShelf }) {
         <Option value="currentlyReading">Currently Reading</Option>
         <Option value="wantToRead">Want to Read</Option>
         <Option value="read">Read</Option>
+        <Option value="none">None</Option>
       </Select>
     </div>
   );
 }
 
+ShelfSelectionComponent.defaultProps = {
+  shelf: 'None',
+};
+
 ShelfSelectionComponent.propTypes = {
-  shelf: PropTypes.string.isRequired,
+  shelf: PropTypes.string,
   changeShelf: PropTypes.func.isRequired,
 };
 

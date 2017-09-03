@@ -21,11 +21,12 @@ class MainScreen extends Component {
     });
   }
 
-  // TODO only new sorting now fetchin
   changeShelf = (book, newShelf) => {
-    BooksAPI.update(book, newShelf).then(BooksAPI.getAll).then((books) => {
-      this.setState({ books });
-    });
+    BooksAPI.update(book, newShelf)
+      .then(BooksAPI.getAll)
+      .then((books) => {
+        this.setState({ books });
+      });
   };
 
   render() {

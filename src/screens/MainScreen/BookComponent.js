@@ -8,7 +8,6 @@ import ShelfSelectionComponent from './ShelfSelectionComponent';
 class BookComponent extends Component {
   render() {
     const { book } = this.props;
-
     return (
       <Card
         key={book.id}
@@ -34,14 +33,13 @@ class BookComponent extends Component {
           <img alt="example" width="100%" height="100%" src={book.imageLinks.thumbnail} />
         </div>
         <div className="custom-card">
-          <h3>
-            {book.title}
-          </h3>
+          <h3>{book.title}</h3>
           <p>
-            {book.authors.map((a, i) => {
-              if (i < book.authors.length - 1) return `${a}, `;
-              return a;
-            })}
+            {book.authors &&
+              book.authors.map((a, i) => {
+                if (i < book.authors.length - 1) return `${a}, `;
+                return a;
+              })}
           </p>
         </div>
       </Card>
@@ -54,7 +52,7 @@ BookComponent.propTypes = {
   book: React.PropTypes.shape({
     id: React.PropTypes.string.isRequired,
     title: React.PropTypes.string.isRequired,
-    shelf: React.PropTypes.string.isRequired,
+    shelf: React.PropTypes.string,
   }).isRequired,
 };
 
