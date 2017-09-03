@@ -90,12 +90,14 @@ class SearchScreen extends Component {
             onChange={this.handleChange}
           />
 
-          <ShelfComponent
-            title="Search Results"
-            shelf="*"
-            changeShelf={this.changeShelf}
-            books={this.state.books}
-          />
+          {this.state.books && (
+            <ShelfComponent
+              title="Search Results"
+              shelf="*"
+              changeShelf={this.changeShelf}
+              books={this.state.books}
+            />
+          )}
         </Content>
 
         <Footer style={{ textAlign: 'center' }}>MyReads App ©2017 Created by Stefan Wegener</Footer>
