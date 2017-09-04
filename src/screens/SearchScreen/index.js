@@ -5,7 +5,7 @@ import _ from 'lodash';
 
 import * as BooksAPI from '../../BooksAPI';
 
-import './styles.css';
+import * as styles from './styles';
 
 import ShelfComponent from '../MainScreen/ShelfComponent';
 
@@ -61,29 +61,13 @@ class SearchScreen extends Component {
 
   render() {
     return (
-      <Layout style={{ height: '100vh' }}>
-        <Header
-          style={{
-            position: 'fixed',
-            width: '100%',
-            textAlign: 'center',
-            color: 'white',
-            fontSize: 24,
-          }}
-        >
+      <Layout style={styles.container}>
+        <Header style={styles.header}>
           <Link to="/">Back </Link>
           MyReads App Search
         </Header>
 
-        <Content
-          style={{
-            marginTop: 64,
-            padding: 20,
-            height: 0,
-            flexGrow: 1,
-            overflowY: 'scroll',
-          }}
-        >
+        <Content style={styles.content}>
           <Input
             placeholder="Enter Search Term"
             value={this.state.query}

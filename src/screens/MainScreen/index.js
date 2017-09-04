@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Layout, Button } from 'antd';
 import { Link } from 'react-router-dom';
 
-import './styles.css';
-
 import * as BooksAPI from '../../BooksAPI';
 
 import ShelfComponent from './ShelfComponent';
